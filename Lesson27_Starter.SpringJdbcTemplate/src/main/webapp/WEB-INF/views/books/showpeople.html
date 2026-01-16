@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Владелец книги</title>
+</head>
+<body>
+
+<p th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getYear()}">VALUE</p>
+<p>Книга сейчас у: <span th:text="${person.getName()}">VALUE</span></p>
+<!--<p>Книга сейчас у :</p> <p th:text="${person.getName()}">VALUE></p>-->
+
+<form th:method="POST" th:action="@{/books/{id}/free(id=${book.getId()})}">
+<input type="submit" value="Освободить книгу">
+</form>
+</br>
+<hr/>
+<form th:action="@{/books/{id}/edit(id=${book.getId()})}">
+    <input type="submit" value="Редактировать">
+</form>
+</form>
+</br>
+<form th:method="DELETE" th:action="@{/books/{id}(id=${book.getId()})}">
+    <input type="submit" value="Удалить">
+</form>
+</body>
+</html>
